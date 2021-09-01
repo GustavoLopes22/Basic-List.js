@@ -1,0 +1,1 @@
+Software desenvolvido para aprendisado da linguagem JavaScript e o armazenamento de dados no local storage. Consite em um aplicativo de criação de lista onde itens podem ser adicionados, apagados e salvos no navegador. 

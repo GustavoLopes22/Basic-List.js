@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/_bootstrap/css/bootstrap.min.css">
+    <script src="src/_jquery/jquery.min.js"></script>
+    <script src="src/_bootstrap/js/bootstrap.min.js"></script>
+    <script src="src/js/script.js"></script>
+    <title>My List</title>
+</head>
+
+<body onload="getStoredList()">
+    <div class="container">
+        <form id="myForm" action="">
+            <div class="list-group">
+
+                <div class="instrucoes">
+
+                    <h1>My List</h1>
+
+                    <hr />
+                    <p> &nbsp; Aplicativo de lista desenvolvido para estudo da linguagem JavaScript. Para uso da
+                        ferramenta basta digitar o nome do item que deseja adicionar a lista ou deletar e selecionar,
+                        atravez dos botões, qual ação vai ser realizada. Não se esqueça de salvar antes de fechar o
+                        aplicativo.</p>
+                    <p><strong>Digite o nome do item que deseja adicionar/deletar:</strong></p>
+                    <input type="text" class="form-control" id="item" placeholder="Ex.: Maça" reset>
+                    <hr />
+                </div>
+
+
+                <div id="myList">
+                    <!--Render List-->
+                </div>
+
+                <div class="menu">
+                    <button type="button" class="btn btn-success" onclick="addItem($('#item').val())">Add</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteItem($('#item').val())">Deletar</button>
+                    <button type="button" class="btn btn-primary" onclick="saveList()" id="save">Salvar</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
