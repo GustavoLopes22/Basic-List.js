@@ -1,4 +1,3 @@
-
 p {
   text-align: justify ;
 }
@@ -7,14 +6,11 @@ h1 {
   text-align: center;
 }
 
-#save {
-  float: right;
-}
-
 .menu {    
-    margin-top: 5%;
+    margin-top: 5%;    
 }
 
+/* list style */
 .b-example-divider {
     height: 3rem;
     background-color: rgba(0, 0, 0, .1);
@@ -63,12 +59,10 @@ h1 {
     clip: rect(0, 0, 0, 0);
     pointer-events: none;
   }
-  .list-group-item-check:hover + .list-group-item {
-    background-color: var(--bs-light);
-  }
+
   .list-group-item-check:checked + .list-group-item {
     color: #fff;
-    background-color: var(--bs-blue);
+    background-color: #555 !important;
   }
   .list-group-item-check[disabled] + .list-group-item,
   .list-group-item-check:disabled + .list-group-item {

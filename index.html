@@ -12,8 +12,9 @@
     <title>My List</title>
 </head>
 
-<body onload="getStoredList()">
-    <div class="container">
+<body onload="main()">
+    <div class="container">        
+
         <form id="myForm" action="">
             <div class="list-group">
 
@@ -22,12 +23,14 @@
                     <h1>My List</h1>
 
                     <hr />
-                    <p> &nbsp; Aplicativo de lista desenvolvido para estudo da linguagem JavaScript. Para uso da
-                        ferramenta basta digitar o nome do item que deseja adicionar a lista ou deletar e selecionar,
-                        atravez dos botões, qual ação vai ser realizada. Não se esqueça de salvar antes de fechar o
-                        aplicativo.</p>
-                    <p><strong>Digite o nome do item que deseja adicionar/deletar:</strong></p>
-                    <input type="text" class="form-control" id="item" placeholder="Ex.: Maça" reset>
+                    <p> &nbsp; Aplicativo de lista desenvolvido para estudo da linguagem JavaScript e utilização para
+                        organização pessoal. Para uso da
+                        ferramenta basta digitar o nome do item que deseja adicionar a lista e selecionar a opção
+                        <i>"Add"</i>,
+                        para deletar basta selecionar o item e selecionar a opção <i>"Deletar"</i>.
+                    </p>
+                    <p><strong>Digite o nome do item que deseja adicionar:</strong></p>
+                    <input type="text" class="form-control" id="item" placeholder="Ex.: Estudar" reset>
                     <hr />
                 </div>
 
@@ -38,8 +41,7 @@
 
                 <div class="menu">
                     <button type="button" class="btn btn-success" onclick="addItem($('#item').val())">Add</button>
-                    <button type="button" class="btn btn-danger" onclick="deleteItem($('#item').val())">Deletar</button>
-                    <button type="button" class="btn btn-primary" onclick="saveList()" id="save">Salvar</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteItem()">Deletar</button>
                 </div>
 
             </div>

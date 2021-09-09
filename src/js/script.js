@@ -1,33 +1,55 @@
 var list = [];
 var storedList = JSON.parse(localStorage.getItem('saveList'));
 
+function main() {    
+
+    list = [];        
+    let count = storedList.length;
+
+    for (let i = 0; i < count; i++) {
+        list.push(storedList[i]);
+    }   
+    
+    saveList();
+    renderList();
+}
+
 function addItem(newItem) {
     list.push(newItem);
 
-    clearFields();
+    saveList()
     renderList();
 }
 
-function renderList() {
-    
-    if ($('#myList').is(':empty')){
-        getStoredList();
-      }
+function deleteItem() {
 
+    let removed = []
     let count = list.length;
 
     for (let i = 0; i < count; i++) {
-        $('#myList').append(`<label class="list-group-item d-flex gap-3"> <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;"> <span class="pt-1 form-checked-content"><strong>${list[i]}.</strong></span></label>`);        
+        let checkboxs = document.getElementById(`my-${list[i]}`);
+
+        if (checkboxs.checked){
+            removed.push(list[i])                
+        }
+        
     }
-    
+
+    let difference = list.filter(x => !removed.includes(x));
+    list = difference;
+   
+    saveList();
+    renderList();            
 }
 
-function deleteItem(item) {
-    let position = list.indexOf(item);
-    list.splice(position, 1);    
-
+function renderList() { 
     clearFields();
-    renderList();
+    
+    let count = list.length;
+
+    for (let i = 0; i < count; i++) {
+        $('#myList').append(`<label class="list-group-item d-flex gap-3"> <input id="my-${list[i]}" class="form-check-input flex-shrink-0" type="checkbox" value="${list[i]}" style="font-size: 1.375em;"> <span class="pt-1 form-checked-content"><strong>${list[i]}.</strong></span></label>`);        
+    }    
 }
 
 function clearFields() {
@@ -39,16 +61,5 @@ function clearFields() {
 
 function saveList() {    
     localStorage.setItem('saveList', JSON.stringify(list));
-
-    alert('Lista salva!');
-}
-
-function getStoredList() {
-    clearFields();
-    
-    let count = storedList.length;
-
-    for (let i = 0; i < count; i++) {
-        $('#myList').append(`<label class="list-group-item d-flex gap-3"> <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;"> <span class="pt-1 form-checked-content"><strong>${storedList[i]}.</strong></span></label>`);        
-    }
+    JSON.parse(localStorage.getItem('saveList'));
 }
