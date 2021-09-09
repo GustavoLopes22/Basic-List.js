@@ -1,5 +1,7 @@
 var list = [];
 var storedList = JSON.parse(localStorage.getItem('saveList'));
+var storedMode = JSON.parse(localStorage.getItem('darkMode'));
+var darkMode = storedMode;
 
 function main() {    
 
@@ -8,16 +10,27 @@ function main() {
 
     for (let i = 0; i < count; i++) {
         list.push(storedList[i]);
-    }   
+    }
+
+    if(darkMode == true){
+        let body = document.body;
+        let input = document.getElementById('item');
+        let switchMode = document.getElementById('darkMode-switch');
+
+        body.classList.toggle('dark-mode');
+        input.classList.toggle('dark-mode-input');
+        switchMode.setAttribute('checked','checked');
+
+    }
     
-    saveList();
+    saveConfig();
     renderList();
 }
 
 function addItem(newItem) {
     list.push(newItem);
 
-    saveList()
+    saveConfig()
     renderList();
 }
 
@@ -38,7 +51,7 @@ function deleteItem() {
     let difference = list.filter(x => !removed.includes(x));
     list = difference;
    
-    saveList();
+    saveConfig();
     renderList();            
 }
 
@@ -59,7 +72,26 @@ function clearFields() {
     $('#myList').html("");
 }
 
-function saveList() {    
+function saveConfig() {      
     localStorage.setItem('saveList', JSON.stringify(list));
-    JSON.parse(localStorage.getItem('saveList'));
+    localStorage.setItem('darkMode', darkMode);
 }
+
+function changeMode() {    
+
+    if (document.getElementById('darkMode-switch').checked){
+        darkMode = true;
+    }else {
+        darkMode = false;
+    }
+
+    let body = document.body;
+    let input = document.getElementById('item');
+    //let list = document.getElementsByClassName('group');
+
+    body.classList.toggle('dark-mode');
+    input.classList.toggle('dark-mode-input');
+    //list.classList.toggle('dark-mode-list');
+
+    saveConfig();
+ }

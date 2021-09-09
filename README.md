@@ -1,13 +1,16 @@
 ### Resumo <h3>
-Software desenvolvido para aprendisado da linguagem JavaScript e o armazenamento de dados no local storage. Consite em um aplicativo de criação de lista onde itens podem ser adicionados, apagados e salvos no navegador. 
+Software desenvolvido para aprendisado da linguagem JavaScript e o armazenamento de dados no local storage. Consite em um aplicativo de criação de lista onde itens podem ser adicionados, apagados e os dados são salvos no navegador automáticamente. 
 
-### Novas Features <h3>
-* Auto Save.
-* Selecionar os itens para deletar, podendo deletar em lote.
+![Imagem modelo light-mode](src/img/light-mode.png?raw=true)
+![Imagem modelo dark-mode](src/img/dark-mode.png?raw=true)
 
-### Atualizações JS <h3>
-* Alteração na lógica e funcionabilidade de deletar itens.
-* Adição da função main().
-* Alteração na função deleteItem().
-* Alteração na função renderList().
-* Remoção da função getStoredList().
+### Features <h3>
+* Auto Save da Lista.
+* Deletar em lote.
+* Dark Mode.
+* Auto Save do dark mode.
+
+### Futuras implementações <h3>
+* Função "Editar" nos itens.
+* Adição de comentários/notas dentro dos itens.
+* Lembretes.
